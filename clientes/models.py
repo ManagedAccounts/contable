@@ -38,4 +38,11 @@ class Cliente(models.Model):
 
     def __str__(self):
         return self.rsocial
+<<<<<<< HEAD
 """
+=======
+
+    #@models.permalink
+    #def get_absolute_url(self):
+    #    return ('clientes', [int(self.pk)])
+>>>>>>> 41a1df05d3f13103a502d5c4aa12dc923f743df2
