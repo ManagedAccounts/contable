@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import DetalleFactura, Factura, Producto, CategoriaProducto, Cliente
+from .models import DetalleFactura, Factura
 # Register your models here.
 
 
@@ -18,7 +18,7 @@ class FacturaAdmin(admin.ModelAdmin):
             obj.vendedor = request.user
         obj.save()
 
-
+"""
 class ProductoAdmin(admin.TabularInline):
     model = Producto
 
@@ -26,8 +26,6 @@ admin.site.register(Factura, FacturaAdmin)
 
 
 admin.site.register(CategoriaProducto)
-
-
 class ClienteAdmin(admin.ModelAdmin):
 
     search_fields = ('razon_social', 'ruc',)
@@ -35,8 +33,6 @@ class ClienteAdmin(admin.ModelAdmin):
         'razon_social', 'ruc', 'direccion', 'telefono',)
 
 admin.site.register(Cliente, ClienteAdmin)
-
-
 class ProductoAdminx(admin.ModelAdmin):
 
     search_fields = ('code', 'nombre',)
@@ -45,3 +41,4 @@ class ProductoAdminx(admin.ModelAdmin):
     exclude = ['igv', ]
 
 admin.site.register(Producto, ProductoAdminx)
+"""

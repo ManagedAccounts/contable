@@ -10,10 +10,14 @@ from django.core import serializers
 from django.db import connection
 import json
 # Create your views here.
-from .models import Cliente, Producto, Factura, DetalleFactura, CategoriaProducto
+from .models import   Factura, DetalleFactura
+from productos.models import Producto, CategoriaProducto
+from clientes.models import Cliente
 from django.db import transaction
 from django.contrib import messages
-from .forms import ClienteForm, CategoriaForm, ProductoForm
+
+from productos.forms import ProductoForm, CategoriaForm
+from clientes.forms import ClienteForm
 
 @login_required
 @transaction.atomic
