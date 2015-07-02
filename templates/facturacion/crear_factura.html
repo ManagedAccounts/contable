@@ -1,12 +1,7 @@
 {% extends 'base_ventas.html' %}
-{% load staticfiles %}
-{% block ventascss %}
-<link rel="stylesheet" href="{% static 'css/venta.css' %}">
-{% endblock %}
 {% block titulo %}Factura de Venta {% endblock %}
 {% block subtitulo %} Facturación{% endblock %}
 {% block contenido %}
-{% load humanize %}
     {% if user.is_authenticated %}
 
         
@@ -34,12 +29,11 @@
             <div class="row invoice-info">
                 <div class="col-sm-4 invoice-col">
                     <b>Factura</b> <br/>
-                    <label class="serie">Serie:</label>
-                    <input class="" name="p-serie" id="p-serie" placeholder="Serie" type="text" required="true"><br/>
-                    <label>Número:</label>
-                    <input name="p-num" id="p-num" placeholder="Numero" type="text" required="true">
+
+                    Serie:<input name="p-serie" id="p-serie" placeholder="Serie" type="text" required="true"><br/>
+                    Num:<input name="p-num" id="p-num" placeholder="Numero" type="text" required="true">
                     <br/>
-                    <label>Fecha de compra:<i> {% now "d/m/Y" %}</i><label><br/><br/>
+                    <b>Fecha de compra:</b> {% now "d/m/Y" %}<br/><br/>
                     
 
                     <!-- Modal -->
@@ -66,14 +60,14 @@
                                     <button type="button" class="btn btn-default" data-dismiss="modal">
                                         Cancelar
                                     </button>
-                                    <button type="button" id="btn-color" class="btn btn-primary" id="p-seleccionar" disabled>
+                                    <button type="button" class="btn btn-primary" id="p-seleccionar" disabled>
                                         Seleccionar
                                     </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <button type="button" id="btn-color" class="btn btn-success" data-toggle="modal" data-target="#buscarProductoModal">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#buscarProductoModal">
                         Seleccionar Producto
                     </button>
 
@@ -142,17 +136,17 @@
                     </div>
                                         
                     <br>
-                    <label>Identificación:</label> <span id="c-id"></span><br/>                    
-                    <label>Razon Social:</label> <span id="c-razon_social"></span><br/>
-                    <label>Direccion:</label> <span id="c-direccion"></span><br/>
-                    <label>Telefono:</label> <span id="c-telefono"></span><br/>
+                    Identificación: <span id="c-id"></span><br/>                    
+                    razon_social: <span id="c-razon_social"></span><br/>
+                    direccion: <span id="c-direccion"></span><br/>
+                    telefono: <span id="c-telefono"></span><br/>
                 </div><!-- /.col -->
 
 
                 <div class="col-sm-4 invoice-col">
                     <strong>Despachador</strong><br>
-                    <label>Apellido:</label> {{user.last_name}}<br>
-                    <label>Nombre:</label> {{user.first_name}}<br>
+                    Apellido: {{user.last_name}}<br>
+                    Nombre: {{user.first_name}}<br>
                     
                 </div><!-- /.col -->
                 

@@ -17,8 +17,6 @@ class Cliente(models.Model):
 
     def __unicode__(self):
         return U"%s-%s" % (self.ruc, self.razon_social)
-"""
-"""
 class CategoriaProducto(models.Model):
     nombre = models.CharField(max_length=200)
     descripcion = models.TextField(max_length=400)
@@ -26,8 +24,6 @@ class CategoriaProducto(models.Model):
     def __unicode__(self):
         return u'%s' % (self.nombre)
 
-"""
-"""
 class Producto(models.Model):
     # codigo = models.IntegerField()
     code = models.CharField(max_length=5, unique=True)
