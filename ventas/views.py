@@ -11,16 +11,22 @@ from django.db import connection
 import json
 # Create your views here.
 from .models import   Factura, DetalleFactura
-from productos.models import Producto, CategoriaProducto
+from productos.models import Producto
 from clientes.models import Cliente
 from django.db import transaction
 from django.contrib import messages
 
-from productos.forms import ProductoForm, CategoriaForm
+from productos.forms import ProductoForm
 from clientes.forms import ClienteForm
 
 @login_required
 @transaction.atomic
+
+
+def factura(request):
+    ventas=DetalleFactura.objects.all()
+    return render(request, 'facturacion/reg_ventas.html',{'ventas':ventas})
+
 def facturaCrear(request):
 
     form = None

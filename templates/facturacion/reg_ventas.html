@@ -1,0 +1,127 @@
+{% extends 'home.html' %}
+{% load staticfiles %}
+{% block extracss %}
+    <link rel="stylesheet" href="{% static 'css/tabla.css' %}">
+    <link rel="stylesheet" href="{% static 'css/registro_compras.css' %}">
+{% endblock %}
+{% block registro_compras %}
+<div class="tabla_compras">
+    <table class="zebra registro_compras" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+        <caption id="caption_regis_buy"><em>Reporte del Registro de Ventas </em></caption>
+            <thead>
+                <tr>
+                    <th scope="col" rowspan="3">NÚMERO CORRELATIVO DEL REGISTRO O CÓDIGO UNICO DE LA OPERACIÓN</th> 
+                    <th scope="col" rowspan="3">FECHA DE EMISIÓN DEL COMPROBANTE DE PAGO O DOCUMENTO</th> 
+                    <th scope="col" rowspan="3">FECHA DE VENCIMIENTO y/o FECHA DE PAGO</th> 
+                    <th scope="col" colspan="3">COMPROBANTE DE PAGO O DOCUMENTO</th>
+                    <th scope="col" colspan="3">INFORMACIÓM DEL CLIENTE</th>
+                    <th scope="col" rowspan="3">VALOR FACTURADO DE LA EXPORTACIÓN</th> 
+                    <th scope="col" rowspan="3">BASE IMPONIBLE DE LA OPERACIÓN GRABADA</th> 
+                    <th scope="col" colspan="2">IMPORTE TOTAL DE LA OPERACIÓN EXONERADA O INAFECTA</th> 
+                    <th scope="col" rowspan="3">ISC</th> 
+                    <th scope="col" rowspan="3">IGV Y/O IPM</th>
+                    <th scope="col" rowspan="3">OTROS TRIBUTOS Y CARGOS QUE FORMAN PARTE DE LA BASE IMPONIBLE</th>
+                    <th scope="col" rowspan="3">IMPORTE TOTAL DEL COMPROBANTE DE PAGO</th> 
+                    <th scope="col" rowspan="3">TIPO DE CAMBIO</th> 
+                    <th scope="col" colspan="4">REFERENCIA DEL COMPROBANTE DE PAGO O DOCUMENTO ORIGINAL QUE SE MODIFICA</th> 
+                    </tr>
+                    <tr>
+                        <th scope="col" rowspan="2">TIPO (TABLA 10)</th> 
+                        <th scope="col" rowspan="2">N° SERIE O N° DE SERIE DE LA MÁQUINA REGISTRADORA</th>
+                        <th scope="col" rowspan="2">NÚMERO</th> 
+                        <th scope="col" colspan="2">DOCUMENTO DE IDENTIDAD</th>
+                        <th scope="col" rowspan="2">APELLIDOS Y NOMBRES, DENOMINACIÓN O RAZÓN SOCIAL</th> 
+                        <th scope="col" rowspan="2">EXONERADA </th>
+                        <th scope="col" rowspan="2">INAFECTA</th>
+                        <th scope="col" rowspan="2">FECHA</th>
+                        <th scope="col" rowspan="2">TIPO (TABLA 10)</th>
+                        <th scope="col" rowspan="2">SERIE</th> 
+                        <th scope="col" rowspan="2">N° DEL COMPROBANTE DE PAGO O DOCUMENTO</th> 
+                    </tr>
+                    <tr>
+                    	<th scope="col" >TIPO (TABLA 2)</th>
+                    	<th scope="col" >NÚMERO</th> 
+                    </tr>
+            </thead>
+ 
+
+        <tfoot>
+            <tr>
+                <td>&nbsp;</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>                                
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td> 
+            </tr>            
+        </tfoot>
+        {% for venta in ventas %}
+        <tr>
+            <td>{{venta.id}}</td> 
+            <td>{{venta.fecha}}</td> 
+            <td>{{venta.fecha}}</td> 
+            <td>01</td> 
+            <td></td> 
+            <td></td> 
+            <td>{{venta.precio}}</td> 
+            <td>{{venta.total}}</td> 
+            <td></td> 
+            <td>{{venta.igv}}</td> 
+            <td></td> 
+            <td>{{venta.total}}</td> 
+            <td>soles</td> 
+            <td>{{venta.code}}-{{venta.number}}</td> 
+            <td></td> 
+            <td></td> 
+            <td></td> 
+            <td>{{venta.cliente.ruc}}</td> 
+            <td>{{venta.cliente.razon_social}}</td> 
+            <td></td> 
+            <td>{{venta.afecta}}</td> 
+            <td>{{venta.fecha}}</td> 
+            <td></td> 
+            <td></td> 
+            <td></td> 
+            <td></td> 
+            <td></td> 
+                               
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+<!-- {% for compra in ordencompra_list %} -->
+<!--     {{ compra.get_tcomprobante_display }} -->
+<!--     {{ compra.ccompra }} -->
+<!--     {{ compra.pcompra.rsocial }} -->
+<!--     {{ compra.aproucto.nombre }} -->
+<!--     {{ compra.aproucto.get_tunidad_display }} -->
+<!--     {{ compra.aproucto.get_tproducto_display }} -->
+<!--     {{ compra.get_tpago_display }} -->
+<!--     {{ compra.fecha }} -->
+<!--     {{ compra.cantidad }} -->
+<!--     {{ compra.uprecio }} -->
+<!-- {% endfor %} -->
+
+{% endblock %}

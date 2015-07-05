@@ -3,14 +3,14 @@ from proveedores.models import Proveedor
 
 # Create your models here.
 TAX_VALUE = 0.18
-
+"""
 class CategoriaProducto(models.Model):
     nombre = models.CharField(max_length=200)
     descripcion = models.TextField(max_length=400)
 
     def __unicode__(self):
         return u'%s' % (self.nombre)
-
+"""
 tp = (
         ('01', 'Mercaderia'),
         ('02', 'Producto Terminado'),
@@ -45,7 +45,7 @@ class Producto(models.Model):
     number = models.IntegerField()
     und_medida=models.CharField(max_length=2, choices=u)
     tipo=models.CharField(max_length=2, choices=tp)
-    categoria = models.ForeignKey(CategoriaProducto, null=True, blank=True)
+    #categoria = models.ForeignKey(CategoriaProducto, null=True, blank=True)
     nombre = models.CharField(max_length=40)
     descripcion = models.TextField(max_length=300, null=True, blank=True)
     imagen = models.ImageField(upload_to="productos",verbose_name='productos', null=True, blank=True)
@@ -54,6 +54,11 @@ class Producto(models.Model):
     igv = models.DecimalField(max_digits=6, decimal_places=2)
     stock = models.IntegerField()
     estado = models.BooleanField(default=True)
+    pmarca = models.CharField(max_length = 50, null=True )#Marca del producto
+    pcompra = models.DecimalField(max_digits = 20, decimal_places = 2)#precio compra
+    pventa = models.DecimalField(max_digits = 20, decimal_places = 2)#precio venta
+    cantidad = models.PositiveIntegerField()
+    #pro_compra = models.OneToOneField(Proveedor)
 
     # def get_serial_number(self):
     #     "Get formatted value of serial number"

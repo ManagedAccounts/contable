@@ -6,5 +6,4 @@ class OrdencompraForm(ModelForm):
     class Meta:
         model = Ordencompra
         fields = ['tcomprobante', 'ccompra', 'pcompra',
-                  'aproucto', 'tpago', 'fecha', 'descripcion',
-                  'cantidad', 'uprecio']
+                  'aproucto', 'tpago', 'fecha','precio']

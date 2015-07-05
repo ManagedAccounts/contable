@@ -4,7 +4,7 @@ from django.db import models
 from django.contrib.auth.models import User
 import decimal
 from clientes.models import Cliente
-from productos.models import Producto, CategoriaProducto
+from productos.models import Producto
 
 TAX_VALUE = 0.18
 

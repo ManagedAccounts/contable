@@ -1,5 +1,5 @@
 from django.contrib import admin
-from productos.models import Producto, CategoriaProducto
+from productos.models import Producto
 """
 class ProductoAdmin(admin.TabularInline):
     model = Producto
@@ -18,4 +18,3 @@ admin.site.register(Producto, ProductoAdminx)
 # Register your models here.
 """
 admin.site.register(Producto)
-admin.site.register(CategoriaProducto)

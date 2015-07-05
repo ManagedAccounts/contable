@@ -43,6 +43,7 @@ urlpatterns = [
     url(r'^factura/consultar$', 'ventas.views.consultarFactura', name="consultar_factura"),
 
     #==================================================================
+    url(r'^ventas/$','ventas.views.factura', name='ventas'),
     url(r'^clientes/$','ventas.views.clientes'),
     url(r'^clienteAdd/$','ventas.views.clienteAdd'),
     url(r'^clienteEdit/(?P<id>\d+)$','ventas.views.clienteEdit'),
